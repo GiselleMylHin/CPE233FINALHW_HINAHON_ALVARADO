@@ -9,7 +9,6 @@
     input [1:0] MEM_SIZE,   // 0-Byte, 1-Half, 2-Word
     input MEM_SIGN,         // 1-unsigned 0-signed
     input [31:0] IO_IN,     // Data from IO
-    //output ERR,           // only used for testing
     output logic IO_WR,     // IO 1-write 0-read
     output logic [31:0] MEM_DOUT1,  // Instruction
     output logic [31:0] MEM_DOUT2); // Data
