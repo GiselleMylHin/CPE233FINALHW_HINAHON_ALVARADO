@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Engineer: Giselle Hinahon & Zachary Alvarado
+// Engineer: Zachary Alvarado
 // 
 // Create Date: 03/02/2025 03:28:14 PM
 // Design Name: 
