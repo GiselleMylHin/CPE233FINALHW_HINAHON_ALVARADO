@@ -1,4 +1,6 @@
-  module Memory (
+`timescale 1ns / 1ps
+
+module Memory (
     input MEM_CLK,
     input MEM_RDEN1,        // read enable Instruction
     input MEM_RDEN2,        // read enable data
