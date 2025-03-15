@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Engineer: Aidan Stutz
+// Engineer: Zachary Alvarado
 // 
-// Create Date: 11/07/2023 03:34:08 PM
+// Create Date: 02/25/2025 09:46:08 PM
 // Design Name: 
 // Module Name: CU_FSM
 // Project Name: 
@@ -11,11 +11,13 @@
 
 
 module CU_FSM(
+    //inputs
     input RST,
     input INTR,
     input [6:0] opcode,
     input [2:0] opcode_2,
     input clk,
+    //outputs
     output logic PCWrite,
     output logic regWrite,
     output logic memWE2,
@@ -26,10 +28,12 @@ module CU_FSM(
     output logic int_taken,
     output logic mret_exec
     );
-    
+
+    //intializing states
     typedef enum{ST_INIT, ST_FETCH, ST_EXEC, ST_WB} STATES;
     STATES PS, NS; 
-    
+
+    //always_ff block starting when rst button is up
     always_ff@(posedge clk) begin 
     if (RST == 1'b1)begin 
         PS <= ST_INIT; 
@@ -54,17 +58,17 @@ module CU_FSM(
     
     //present State case
     case(PS)
-        ST_INIT: begin 
+        ST_INIT: begin  //init state
             NS = ST_FETCH; 
             reset = 1'b1; 
         end 
             
-        ST_FETCH: begin 
+        ST_FETCH: begin //fetch state
             NS = ST_EXEC; 
             memRDEN1 = 1'b1; 
         end
         
-        ST_WB: begin 
+        ST_WB: begin //writeback state
             PCWrite = 1'b1; 
             regWrite = 1'b1; 
             begin
@@ -72,7 +76,7 @@ module CU_FSM(
             end
         end
         
-        ST_EXEC: begin 
+        ST_EXEC: begin //execute state beginning
         PCWrite = 1'b1; 
             case(opcode) 
             7'b1110011:
@@ -175,13 +179,13 @@ module CU_FSM(
                 end
                 
             default: 
-                begin NS = ST_FETCH; end 
+                begin NS = ST_FETCH; end //default state 
            
             endcase
             end
         
         default: 
-            NS = ST_FETCH; 
+            NS = ST_FETCH; //default state
         
     endcase
     end
