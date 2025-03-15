@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Engineer: Giselle Hinahon & Zachary Alvarado
+// Engineer: Giselle Hinahon
 // 
 // Create Date: 03/01/2025 12:22:59 PM
 // Module Name: ALU
