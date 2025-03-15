@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Engineer: Giselle Hinahon & Zachary Alvarado
+// Engineer: Giselle Hinahon
 // 
 // Create Date: 03/02/2025 11:25:13 AM
 // Module Name: reg_file
