@@ -29,19 +29,17 @@ module OTTER_MCU(
     logic regWrite;
     logic reset;
     
-    logic csr_WE; 
+     
     //logic mstatus;
     logic int_taken;
     logic mret_exec;
-    logic csr_intr;
-    logic [31:0] csr_RD_data;
     logic [31:0] alu_result; 
     logic [31:0] mtvec;
     logic [31:0] mepc; 
     logic [31:0] pc;
-    
-    assign mret_exec = 0;
-    assign csr_intr = 32'b0;
+
+    //assigning negligible variables to 0
+    assign mret_exec = 0; 
     assign mepc = 32'b0;
     assign mtvec = 32'b0;
    
@@ -60,7 +58,6 @@ module OTTER_MCU(
         .memRDEN1(memRDEN1),
         .memRDEN2(memRDEN2),
         .reset(reset),
-        .csr_WE(csr_WE),
         .mret_exec(mret_exec)
     );   
     
@@ -166,8 +163,7 @@ module OTTER_MCU(
     always_comb begin
     //reg_file MUX
         case(rf_wr_sel)
-            2'b00: wd_data = nextInstruction; 
-            2'b01: wd_data = csr_RD_data; 
+            2'b00: wd_data = nextInstruction;  
             2'b10: wd_data = Dout2; 
             2'b11: wd_data = alu_result;
             default: wd_data = 32'hdead; 
@@ -267,8 +263,7 @@ module OTTER_MCU(
             3'b000: muxB_to_alu = Din2_memory;
             3'b001: muxB_to_alu = I_TYPE; 
             3'b010: muxB_to_alu = S_TYPE; 
-            3'b011: muxB_to_alu = instructionAddress; 
-            3'b100: muxB_to_alu = csr_RD_data; 
+            3'b011: muxB_to_alu = instructionAddress;  
             default: muxB_to_alu = 32'hdead;
         endcase 
     end
