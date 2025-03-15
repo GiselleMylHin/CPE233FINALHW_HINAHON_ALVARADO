@@ -9,10 +9,12 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module OTTER_MCU(
-    input logic CPU_RST,
+    //inputs:
+    input logic CPU_RST, 
     input logic CPU_INTR,
     input logic [31:0] CPU_IOBUS_IN,
     input logic CPU_CLK,
+    //outputs
     output logic CPU_IOBUS_WR,
     output logic [31:0] CPU_IOBUS_OUT,
     output logic [31:0] CPU_IOBUS_ADDR
