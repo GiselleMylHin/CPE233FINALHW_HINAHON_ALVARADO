@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module OTTER_Wrapper(
    input CLK,
    input BTNC,
