@@ -10,8 +10,7 @@ module OTTER_Wrapper(
     localparam SWITCHES_AD = 32'h11000000;
            
     localparam LEDS_AD      = 32'h11000020;
-    localparam SSEG_AD      = 32'h11000040;
-    localparam KEYBOARD_AD  = 32'h11000100;       
+    localparam SSEG_AD      = 32'h11000040;     
     
    // signals for connecting OTTER_MCU to OTTER_wrapper 
    logic [31:0] IOBUS_out,IOBUS_in,IOBUS_addr;
