@@ -36,7 +36,6 @@ module CU_DCDR(
         pcSource = 4;
     else
         case (opcode)
-            //CSR
             7'b1110011:
                 begin 
                 case(opcode2)           
@@ -45,7 +44,7 @@ module CU_DCDR(
                         pcSource = 3'h5; 
                     end
                     
-                    3'b001: //csrrw 
+                    3'b001: 
                     begin
                         pcSource = 3'b0; 
                         alu_srcA = 2'b0; 
@@ -53,7 +52,7 @@ module CU_DCDR(
                         rf_wr_sel = 1;
                     end
                     
-                    3'b011: //csrrc
+                    3'b011: 
                     begin 
                         rf_wr_sel = 1;
                         alu_fun = 4'b0111;
@@ -62,7 +61,7 @@ module CU_DCDR(
                         alu_srcB = 4;
                     end 
                     
-                    3'b010: //csrrs
+                    3'b010: 
                     begin 
                         rf_wr_sel = 1;
                         alu_fun = 4'b0110;
